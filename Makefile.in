@@ -6,9 +6,16 @@ includedir = @includedir@
 
 CC = @CC@
 CFLAGS  = @CFLAGS@ \
-	--sysroot=${SDKTARGETSYSROOT}
+	@GLIB_CFLAGS@ \
+	@GMP_CFLAGS@ \
+	@PBC_CFLAGS@ \
+	@DEFS@
+LDFLAGS = @LDFLAGS@ \
+	@GLIB_LIBS@ \
+	@GMP_LIBS@ \
+	@PBC_LIBS@ \
+	@LIBS@
 
-LDFLAGS = 
 DISTNAME = @PACKAGE_TARNAME@-@PACKAGE_VERSION@
 
 all: libcelia.a TAGS
@@ -36,6 +43,12 @@ dist: AUTHORS COPYING INSTALL NEWS README \
 	cp $^ $(DISTNAME)
 	tar zc $(DISTNAME) > $(DISTNAME).tar.gz
 	rm -rf $(DISTNAME)
+
+install: libcelia.a celia.h
+	$(top_srcdir)/mkinstalldirs -m 755 $(libdir)
+	$(top_srcdir)/mkinstalldirs -m 755 $(includedir)
+	$(top_srcdir)/install-sh -m 755 libcelia.a $(libdir)
+	$(top_srcdir)/install-sh -m 644 celia.h $(includedir)
 
 uninstall:
 	/bin/rm -f $(libdir)/libcelia.a
