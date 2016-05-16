@@ -6,15 +6,9 @@ includedir = @includedir@
 
 CC = @CC@
 CFLAGS  = @CFLAGS@ \
-	@GLIB_CFLAGS@ \
-	-I${sysroot}/usr/include/pbc -I${sysroot}/usr/local/include/pbc \
-	@DEFS@
-LDFLAGS = @LDFLAGS@ \
-	@GLIB_LIBS@ \
-	@GMP_LIBS@ \
-	@PBC_LIBS@ \
-	@LIBS@
+	--sysroot=${SDKTARGETSYSROOT }
 
+LDFLAGS = 
 DISTNAME = @PACKAGE_TARNAME@-@PACKAGE_VERSION@
 
 all: libcelia.a TAGS
