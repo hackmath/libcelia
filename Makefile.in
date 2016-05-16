@@ -7,8 +7,7 @@ includedir = @includedir@
 CC = @CC@
 CFLAGS  = @CFLAGS@ \
 	@GLIB_CFLAGS@ \
-	@GMP_CFLAGS@ \
-	@PBC_CFLAGS@ \
+	-I/usr/include/pbc -I/usr/local/include/pbc
 	@DEFS@
 LDFLAGS = @LDFLAGS@ \
 	@GLIB_LIBS@ \
