@@ -43,12 +43,6 @@ dist: AUTHORS COPYING INSTALL NEWS README \
 	tar zc $(DISTNAME) > $(DISTNAME).tar.gz
 	rm -rf $(DISTNAME)
 
-install: libcelia.a celia.h
-	$(top_srcdir)/mkinstalldirs -m 755 $(libdir)
-	$(top_srcdir)/mkinstalldirs -m 755 $(includedir)
-	$(top_srcdir)/install-sh -m 755 libcelia.a $(libdir)
-	$(top_srcdir)/install-sh -m 644 celia.h $(includedir)
-
 uninstall:
 	/bin/rm -f $(libdir)/libcelia.a
 	/bin/rm -f $(includedir)/celia.h
