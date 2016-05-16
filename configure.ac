@@ -41,7 +41,7 @@ AC_CHECK_FUNCS([strdup],,
 
 dnl Now, we check for specific packages we need.
 AM_PATH_GLIB_2_0([2.0.0])
-GMP_6_1_CHECK
+GMP_4_0_CHECK([6.1.0])
 PBC_CHECK
 
 dnl Specify the output.
